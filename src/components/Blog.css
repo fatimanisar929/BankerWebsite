@@ -1,0 +1,73 @@
+.blog-section {
+  padding: 60px 30px;
+  background: #fff;
+  margin-top: 200px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  max-width: 1100px;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.blog-card img {
+  width: 100%;
+  height: auto;
+}
+
+.blog-card h3 {
+  margin: 15px 0 8px;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #111;
+}
+
+.blog-card .meta {
+  font-size: 1rem;
+  color: #6e6e6e;
+  margin-bottom: 12px;
+  font-weight: 350;
+  text-align: left;
+}
+
+.blog-card .news {
+  color: orange;
+  cursor: pointer;
+}
+.blog-card .news:hover {
+  color: orangered;
+}
+
+.blog-card .content {
+  font-size: 0.95rem;
+  color: #6e6d6d;
+  text-align: left;
+  line-height: 1.9;
+  font-weight: 400;
+}
+
+.blog-card .read-more {
+  color: orange;
+  font-weight: 400;
+  margin-top: -60px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+}
+.blog-card .read-more:hover {
+  color: orangered;
+}
+@media (max-width: 768px) {
+  .pricing-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pricing-card {
+    width: 90%;
+    max-width: 400px;
+  }
+}

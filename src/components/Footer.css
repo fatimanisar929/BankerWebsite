@@ -1,0 +1,99 @@
+.footer {
+  background-color: #3b3a3a;
+  color: #ccc;
+  padding: 100px 80px 100px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+.footer-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.footer-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #ccc;
+  text-align: left;
+  max-width: 550px;
+  font-weight: 400;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.nav-link {
+  color: #ccc;
+  font-size: 1rem;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.social-icons a {
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #fff;
+}
+
+.newsletter-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  color: #000;
+}
+
+.footer-bottom p {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 0.9rem;
+  color: #fcfbfb;
+  margin-left: 200px;
+}
+
+.brand-name {
+  color: #fff;
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+button {
+  border-radius: 25px;
+  padding: 12px;
+}
+.footer-heading {
+  display: flex;
+  flex-direction: row;
+}

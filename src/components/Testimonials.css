@@ -1,0 +1,125 @@
+.testimonial-slider {
+  background: #ffffff;
+  padding: 40px 20px;
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 130px;
+}
+
+.testimonial-content .review {
+  margin-top: -40px;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: #474646b5;
+  margin-bottom: 60px;
+  font-weight: 400;
+  line-height: 2;
+  max-width: 1000px;
+}
+
+.person {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.person-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.person h4 {
+  font-size: 1rem;
+  color: #555555b4;
+  font-weight: 500;
+}
+
+.testimonial-dots {
+  margin-top: 25px;
+}
+
+.testimonial-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: rgba(128, 128, 128, 0.769);
+  border-radius: 50%;
+  margin: 0 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.testimonial-dot.active {
+  background-color: orange;
+}
+
+.testimonial-content {
+  opacity: 1;
+  transition: transform 0.3s ease-in-out;
+}
+
+.testimonial-content.animate {
+  animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.testimonial-conent {
+  opacity: 1;
+  transform: translateX(0);
+  transition: transform 0.4s ease-in-out, opacity 0.6s ease-in-out;
+  padding: 0 20px;
+}
+
+.testimonial-conent.animate {
+  opacity: 0;
+  transform: translateX(-50px); /* Slide from right to left */
+}
+
+.review {
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: #4b4b4bb1;
+  font-weight: 400;
+}
+
+.testimonial-dot.active {
+  background-color: orange;
+}
+
+@media (max-width: 600px) {
+  .testimonial-slider {
+    padding: 30px 15px;
+  }
+
+  .review {
+    font-size: 1rem;
+  }
+
+  .person-img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .testimonial-dot {
+    width: 10px;
+    height: 10px;
+  }
+}

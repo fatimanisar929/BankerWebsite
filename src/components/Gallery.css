@@ -1,0 +1,555 @@
+.gallery-section {
+  padding: 2rem 1rem;
+  background: #ffffff;
+  width: 100%;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: orange;
+  margin-bottom: 1.5rem;
+}
+
+.gallery-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.gallery-buttons button {
+  padding: 0.6rem 1.6rem;
+  background: rgb(240, 239, 237);
+  color: #020202;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.6s ease;
+
+  font-weight: 600;
+}
+
+.gallery-buttons button:hover,
+.gallery-buttons button.active {
+  background: orange;
+  color: #fff;
+}
+
+.gallery-grid {
+  display: grid;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 70px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+
+  cursor: pointer;
+  animation: fadeUp 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+.search-icon {
+  color: #fff;
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.search-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Fullscreen Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 100%;
+
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.close-btn,
+.arrow {
+  position: absolute;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  background: rgba(73, 73, 73, 0.505);
+  padding: 0.5rem;
+
+  transition: background 0.3s ease;
+}
+
+.close-btn:hover,
+.arrow:hover,
+.search-close:hover,
+.search-pause:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.close-btn {
+  top: 20px;
+  right: 30px;
+}
+
+.search-close {
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  top: 20px;
+  right: 80px;
+  position: absolute;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  background: rgba(73, 73, 73, 0.505);
+  padding: 0.5rem;
+  transition: background 0.3s ease;
+}
+.search-pause {
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  top: 20px;
+  right: 90px;
+  position: absolute;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  background: rgba(73, 73, 73, 0.505);
+  padding: 0.5rem;
+  transition: background 0.3s ease;
+}
+.arrow.left {
+  left: 30px;
+}
+
+.arrow.right {
+  right: 30px;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  width: 100%;
+  background: rgba(15, 15, 15, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal img {
+  max-height: 80dvh;
+  max-width: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  margin-top: 40px;
+}
+
+/* Controls */
+.modal-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 40px;
+  pointer-events: none;
+}
+
+.modal-controls i {
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.3s ease;
+}
+
+.modal-controls i:hover {
+  transform: scale(1.2);
+}
+
+/* Close and Search Buttons */
+.modal-close,
+.modal-search {
+  position: absolute;
+  top: 20px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.modal-close {
+  right: 20px;
+}
+
+.modal-search {
+  left: 25px;
+}
+
+/* Progress Bar */
+.modal-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background-color: orange;
+  transition: width 0.1s linear;
+  z-index: 10002;
+  width: 0%;
+}
+
+/* Counter */
+.modal-counter {
+  position: absolute;
+  bottom: 20px;
+  color: white;
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+/* Slide Up Animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gallery-buttons {
+    gap: 12px;
+  }
+
+  .modal-controls i {
+    font-size: 28px;
+  }
+
+  .modal-close,
+  .modal-search {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal img {
+    max-height: 65dvh;
+    max-width: 95%;
+  }
+
+  .modal-controls {
+    padding: 0 20px;
+  }
+
+  .modal-close,
+  .modal-search {
+    top: 15px;
+    font-size: 24px;
+  }
+}
+
+/* Base reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Main Gallery Styles */
+.gallery-section {
+  padding: 2rem 1rem;
+  background: #fff;
+  width: 100%;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: orange;
+  margin-bottom: 1.5rem;
+}
+
+.gallery-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.gallery-buttons button {
+  padding: 0.6rem 1.6rem;
+  background: rgb(240, 239, 237);
+  color: #020202;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.6s ease;
+}
+
+.gallery-buttons button:hover,
+.gallery-buttons button.active {
+  background: orange;
+  color: #fff;
+}
+
+/* Grid */
+.gallery-grid {
+  display: grid;
+  margin: 0 50px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  animation: fadeUp 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+.search-icon {
+  color: #fff;
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.search-icon:hover {
+  transform: scale(1.2);
+}
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  width: 100%;
+  background: rgba(15, 15, 15, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow-y: auto;
+}
+
+.modal-image {
+  max-height: 80dvh;
+  max-width: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(24, 23, 23, 0.6);
+  margin: 20px 0;
+  transition: transform 0.4s ease-in-out;
+}
+
+.modal-image.zoomed {
+  transform: scale(1.4);
+}
+
+/* Header (Progress + Counter) */
+.modal-header {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+}
+
+.progress-bar {
+  margin-top: -60px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
+
+.progress-fill {
+  height: 100%;
+  background: orange;
+  transition: width 0.1s linear;
+}
+
+.modal-counter {
+  position: absolute;
+  bottom: 20px;
+  color: white;
+  font-size: 16px;
+  background: rgba(39, 38, 38, 0.4);
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+/* Controls */
+.icon {
+  position: absolute;
+  font-size: 2rem;
+  color: #fff;
+  background: rgba(73, 73, 73, 0.505);
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  z-index: 10001;
+}
+
+.icon:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.close-btn {
+  top: 20px;
+  right: 30px;
+}
+
+.search-close {
+  top: 20px;
+  right: 80px;
+}
+
+.search-pause {
+  top: 20px;
+  right: 130px;
+}
+
+.arrow.left {
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.arrow.right {
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal-image.zoomed {
+    transform: scale(1.2);
+  }
+
+  .icon {
+    font-size: 1.5rem;
+    padding: 0.4rem;
+  }
+
+  .arrow.left,
+  .arrow.right {
+    top: auto;
+    bottom: 30px;
+    transform: none;
+  }
+}
